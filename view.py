@@ -23,7 +23,8 @@ import logging, logging.handlers
 import csv
 import fnmatch
 import shutil
-from matplotlib.dates import AutoDateLocator, MonthLocator, date2num, num2date, YearLocator, epoch2num
+from matplotlib.dates import AutoDateLocator, MonthLocator, date2num, num2date, YearLocator
+import datetime
 from matplotlib.collections import LineCollection
 from dateutil.rrule import MONTHLY, YEARLY
 import calendar
@@ -40,6 +41,10 @@ from pdart.util import remove_negative_ones
 
 import matplotlib
 import matplotlib.pyplot as plt
+
+def epoch2num(epoch):
+    """Convert Unix timestamp to Matplotlib's date number."""
+    return date2num(datetime.datetime.utcfromtimestamp(epoch))
 
 
 global DELTA
